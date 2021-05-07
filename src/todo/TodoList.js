@@ -12,8 +12,6 @@ import {
 
 import {
     List,
-    Title,
-    IconButton,
     Text as PaperText,
     Button as PaperButton,
     TextInput as PaperTextInput,
@@ -44,10 +42,10 @@ const TodoList = (props) => {
             input: input,
             onCompleted: () => {
                 Alert.alert('Success!', 'Todo created!');
-                setNewTodoTitle('')
+                setNewTodoTitle('');
             },
             onError: (errors) => {
-                Alert.alert('Error!', errors[0].message);
+                Alert.alert('Error!', errors);
             },
         });
     }
@@ -64,10 +62,10 @@ const TodoList = (props) => {
             environment,
             input: input,
             onCompleted: () => {
-                Alert.alert('Success!', 'Todo created!');
+                Alert.alert('Success!', 'Todo updated!');
             },
             onError: (errors) => {
-                Alert.alert('Error!', errors[0].message);
+                Alert.alert('Error!', errors);
             },
         });
     }
@@ -84,8 +82,7 @@ const TodoList = (props) => {
                 Alert.alert('Success!', 'Todo deleted!');
             },
             onError: (errors) => {
-                console.log('errors', errors)
-                // Alert.alert('Error!', errors[0].message);
+                Alert.alert('Error!', errors);
             },
         });
     }
@@ -143,16 +140,6 @@ const TodoList = (props) => {
                     </PaperText>
                     <PaperText style={Styles.header_text}>{'Product Creation'}</PaperText>
                 </View>
-                <View style={Styles.wrapper}>
-                    <View style={Styles.flex_between}>
-                        <Title>Todo List</Title>
-                        <IconButton
-                            icon="refresh"
-                            color={'#208AEC'}
-                            size={24}
-                        />
-                    </View>
-                </View>
                 <View style={Styles.create_todo_container}>
                     {/* Todo create text input */}
                     <PaperTextInput
@@ -172,7 +159,7 @@ const TodoList = (props) => {
                         {'Add'}
                     </PaperButton>
                 </View>
-                <ScrollView>
+                <ScrollView style={Styles.todo_list}>
                     {renderTodos()}
                 </ScrollView>
             </SafeAreaView>
@@ -235,6 +222,8 @@ const Styles = StyleSheet.create({
     },
     create_todo_container: {
         flexDirection: 'row',
+        paddingLeft: 10,
+        paddingRight: 10,
     },
     create_todo_input: {
         flex: 1,
@@ -247,6 +236,10 @@ const Styles = StyleSheet.create({
         marginTop: 6,
         marginLeft: 15,
         height: 40,
+    },
+    todo_list: {
+        paddingLeft: 10,
+        paddingRight: 10,
     },
     todo_item: {
         borderBottomWidth: 1,
