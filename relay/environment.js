@@ -16,8 +16,8 @@ const fetchQuery = async (request, variables) => {
     const headers = {
         Accept: 'application/json',
         'Content-type': 'application/json',
-        'X-Parse-Application-Id': 'mJoObOJSH1EWm2aAAWdzuxxxsDI04Ztmdhv1lIKa',
-        'X-Parse-Client-Key': 'iFChiqwuO0pKPAH68XCV6SWjOurDOYMznjUxih53',
+        'X-Parse-Application-Id': 'X-Parse-Application-Id',
+        'X-Parse-Client-Key': 'X-Parse-Client-Key',
     };
 
     const isMutationOperation = isMutation(request);
